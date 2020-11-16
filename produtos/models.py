@@ -16,7 +16,7 @@ class Processador(models.Model):
 
 class PlacaMae(models.Model):
     nome = models.CharField(max_length=150, )
-    processador = models.CharField()
+    processador = models.CharField(max_length=100)
 
 
     class Meta:
