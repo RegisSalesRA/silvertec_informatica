@@ -12,7 +12,7 @@ class Processador(models.Model):
         verbose_name_plural = "Processadores"
 
     def __str__(self):
-        return self.nome
+        return self.marca
 
 class PlacaMae(models.Model):
     nome = models.CharField(max_length=150, )
