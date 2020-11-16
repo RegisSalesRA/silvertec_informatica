@@ -4,7 +4,8 @@ from django.db import models
 # Create your models here.
 
 class Processador(models.Model):
-    nome = models.CharField(max_length=150, )
+    marca = models.CharField(max_length=150, )
+
 
     class Meta:
         verbose_name = 'Processador'
@@ -15,6 +16,7 @@ class Processador(models.Model):
 
 class PlacaMae(models.Model):
     nome = models.CharField(max_length=150, )
+    processador = models.CharField()
 
 
     class Meta:
