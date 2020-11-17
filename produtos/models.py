@@ -1,19 +1,53 @@
 from django.db import models
-
+from django.db.models.deletion import CASCADE
+from django.db.models.fields.related_descriptors import create_forward_many_to_many_manager
 
 # Create your models here.
 
-class Processador(models.Model):
-    INTEL = 'INTEL'
-    AMD = 'AMD'
+class Tamanhos(models.Model):
 
-    marcas = [
-        (INTEL, 'INTEL'),
-        (AMD, 'AMD'),
+    disponiveis = [
+        ('4 GB', '4 GB'),
+        ('8 GB', '8 GB'),
+        ('16 GB', '16 GB'),
+        ('32 GB', '32 GB'),
+        ('64 GB', '64 GB'),
     ]
+    tamanho = models.CharField(choices=disponiveis,max_length=100)
 
+    class Meta:
+        verbose_name = 'Tamanho'
+        verbose_name_plural = 'Tamanhos'
+
+    def __str__(self):
+        return self.tamanho
+
+
+
+class Marcas(models.Model):
+    processador_suportado = [
+        ('INTEL', 'INTEL'),
+        ('AMD', 'AMD'),
+        ('INTEL_AMD', 'INTEL E AMD')
+    ]
+    marcas = models.CharField(max_length=100, choices=processador_suportado)
+
+
+    class Meta:
+        verbose_name = 'Marca'
+        verbose_name_plural = 'Marcas'
+
+    def __str__(self):
+        return self.marcas
+
+
+class Processador(models.Model):
+    
     nome = models.CharField(max_length=100)
-    marca = models.CharField(choices=marcas, max_length=100)
+    marca = models.ForeignKey(Marcas, on_delete=models.CASCADE)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'Processador'
@@ -25,22 +59,25 @@ class Processador(models.Model):
 
 
 class PlacaMae(models.Model):
-    processador_suportado = [
-        ('INTEL', 'INTEL'),
-        ('AMD', 'AMD'),
-        ('INTEL_AMD', 'INTEL E AMD')
-    ]
 
     memoria_suportada = [
         ('opcao1', 'Até 16 GB'),
         ('opcao2', 'Até 64 GB'),
     ]
 
-    nome = models.CharField(max_length=150, )
-    processadorSuportado = models.CharField(choices=processador_suportado, max_length=100)
-    slots = models.IntegerField(default=0)
+    slots = [
+        ('2', '2'),
+        ('4', '4'),
+    ]
+
+    nome = models.CharField(max_length=150)
+    marca = models.ForeignKey(Marcas, on_delete=models.CASCADE)
+    slots = models.CharField(choices=slots, max_length=20)
     memoriaSuportada = models.CharField(choices=memoria_suportada, max_length=100)
     videoIntegrado = models.BooleanField(default=False)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'Placa Mãe'
@@ -52,17 +89,12 @@ class PlacaMae(models.Model):
 
 
 class MemoriaRam(models.Model):
-    disponiveis = [
-        ('opcao1', '4 GB'),
-        ('opcao2', '8 GB'),
-        ('opcao3', '16 GB'),
-        ('opcao4', '32 GB'),
-        ('opcao5', '64 GB'),
-    ]
 
-    nome = models.CharField(max_length=150, )
-    tamanho = models.CharField(choices=disponiveis, max_length=100)
+    nome = models.CharField(max_length=150)
+    tamanho = models.ForeignKey(Tamanhos, on_delete=CASCADE)
 
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     class Meta:
         verbose_name = 'Memoria Ram'
         verbose_name_plural = "Memorias"
@@ -72,7 +104,9 @@ class MemoriaRam(models.Model):
 
 
 class PlacaDeVideo(models.Model):
-    nome = models.CharField(max_length=150, )
+    nome = models.CharField(max_length=150)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = 'Placa de video'
