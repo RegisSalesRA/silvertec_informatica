@@ -20,7 +20,8 @@ class Processador(models.Model):
         verbose_name_plural = "Processadores"
 
     def __str__(self):
-        return self.marca
+        return f'{self.nome} {self.marca}'
+
 
 
 class PlacaMae(models.Model):
@@ -46,7 +47,8 @@ class PlacaMae(models.Model):
         verbose_name_plural = "Placas Mãe"
 
     def __str__(self):
-        return self.nome
+        return f'{self.nome} {self.processadorSuportado} {self.memoriaSuportada} {self.videoIntegrado}'
+
 
 
 class MemoriaRam(models.Model):
@@ -66,7 +68,7 @@ class MemoriaRam(models.Model):
         verbose_name_plural = "Memorias"
 
     def __str__(self):
-        return self.nome
+        return f'{self.nome} {self.tamanho}'
 
 
 class PlacaDeVideo(models.Model):
