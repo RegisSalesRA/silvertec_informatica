@@ -4,8 +4,16 @@ from django.db import models
 # Create your models here.
 
 class Processador(models.Model):
-    marca = models.CharField(max_length=150, )
+    INTEL = 'INTEL'
+    AMD = 'AMD'
 
+    marcas = [
+        (INTEL, 'INTEL'),
+        (AMD, 'AMD'),
+    ]
+
+    nome = models.CharField(max_length=100)
+    marca = models.CharField(choices=marcas, max_length=100)
 
     class Meta:
         verbose_name = 'Processador'
@@ -14,10 +22,24 @@ class Processador(models.Model):
     def __str__(self):
         return self.nome
 
-class PlacaMae(models.Model):
-    nome = models.CharField(max_length=150, )
-    processador = models.CharField(max_length=100)
 
+class PlacaMae(models.Model):
+    processador_suportado = [
+        ('INTEL', 'INTEL'),
+        ('AMD', 'AMD'),
+        ('INTEL_AMD', 'INTEL E AMD')
+    ]
+
+    memoria_suportada = [
+        ('opcao1', 'Até 16 GB'),
+        ('opcao2', 'Até 64 GB'),
+    ]
+
+    nome = models.CharField(max_length=150, )
+    processadorSuportado = models.CharField(choices=processador_suportado, max_length=100)
+    slots = models.IntegerField(default=0)
+    memoriaSuportada = models.CharField(choices=memoria_suportada, max_length=100)
+    videoIntegrado = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'Placa Mãe'
@@ -26,9 +48,18 @@ class PlacaMae(models.Model):
     def __str__(self):
         return self.nome
 
-class MemoriaRam(models.Model):
-    nome = models.CharField(max_length=150, )
 
+class MemoriaRam(models.Model):
+    disponiveis = [
+        ('opcao1', '4 GB'),
+        ('opcao2', '8 GB'),
+        ('opcao3', '16 GB'),
+        ('opcao4', '32 GB'),
+        ('opcao5', '64 GB'),
+    ]
+
+    nome = models.CharField(max_length=150, )
+    tamanho = models.CharField(choices=disponiveis, max_length=100)
 
     class Meta:
         verbose_name = 'Memoria Ram'
@@ -37,14 +68,13 @@ class MemoriaRam(models.Model):
     def __str__(self):
         return self.nome
 
+
 class PlacaDeVideo(models.Model):
     nome = models.CharField(max_length=150, )
-
 
     class Meta:
         verbose_name = 'Placa de video'
         verbose_name_plural = "Placas de video"
-
 
     def __str__(self):
         return self.nome
