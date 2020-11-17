@@ -25,12 +25,12 @@ class Tamanhos(models.Model):
 
 
 class Marcas(models.Model):
-    processador_suportado = [
+    marcas_opcoes = [
         ('INTEL', 'INTEL'),
         ('AMD', 'AMD'),
         ('INTEL_AMD', 'INTEL E AMD')
     ]
-    marcas = models.CharField(max_length=100, choices=processador_suportado)
+    marcas = models.CharField(max_length=100, choices=marcas_opcoes)
 
 
     class Meta:
@@ -84,7 +84,7 @@ class PlacaMae(models.Model):
         verbose_name_plural = "Placas Mãe"
 
     def __str__(self):
-        return f'{self.nome} {self.processadorSuportado} {self.memoriaSuportada} {self.videoIntegrado}'
+        return f'{self.nome} {self.marca} {self.slots} {self.memoriaSuportada} {self.videoIntegrado}'
 
 
 
