@@ -18,4 +18,4 @@ class Montagem(models.Model):
         verbose_name_plural = 'Montagens'
 
     def __str__(self):
-        return self.nome
+        return f'Computador do cliente {str(self.nome)}'
