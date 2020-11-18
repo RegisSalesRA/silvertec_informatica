@@ -8,5 +8,5 @@ Montagem.register('montagem', MontagemView)
 
 
 urlpatterns = [
-    path('montagem', MontagemView, name='montagem'),
+    path('', MontagemView, name='montagem'),
 ]

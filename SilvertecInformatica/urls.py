@@ -20,7 +20,6 @@ from montagem.urls import Montagem
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(Produtos.urls)),
-    path('pecas/',include(Montagem.urls))
+    path('pecas/', include(Produtos.urls)),
+    path('', include(Montagem.urls))
 ]
-
