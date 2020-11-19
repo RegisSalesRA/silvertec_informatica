@@ -4,7 +4,7 @@ from rest_framework.routers import SimpleRouter
 
 
 Montagem = SimpleRouter()
-Montagem.register('montagem', MontagemView)
+Montagem.register('', MontagemView)
 
 
 urlpatterns = [
