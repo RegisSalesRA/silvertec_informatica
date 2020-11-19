@@ -7,3 +7,4 @@ from rest_framework import viewsets
 class MontagemView(viewsets.ModelViewSet):
     queryset = Montagem.objects.all()
     serializer_class = MontagemSerializer
+

@@ -54,7 +54,7 @@ class PlacaMae(models.Model):
 class MemoriaRam(models.Model):
     nome = models.CharField(max_length=150)
     tamanho = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
-    cor = models.ForeignKey(Cores, on_delete=models.CASCADE,blank=True, null=True)
+    cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

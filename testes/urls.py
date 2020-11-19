@@ -1,12 +1,12 @@
-from .views import CampoView
+from .views import CampoView, ClienteView
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
-
 Campo = SimpleRouter()
-Campo.register('', CampoView)
-
+Campo.register('campo', CampoView)
+Campo.register('cliente', ClienteView)
 
 urlpatterns = [
-    path('', CampoView, name='campo'),
+    path('campo', CampoView, name='campo'),
+    path('cliente', ClienteView, name='cliente'),
 ]
