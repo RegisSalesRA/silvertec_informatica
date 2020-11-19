@@ -4,4 +4,4 @@ Sistema de montagem de computadores com a finalidade de adquerir conhecimentos s
 ![GitHub Logo](/readme_images/git.png)
 
 
-<img src="readme_images/git.png" />
+<img src="/readme_images/git.png" />
