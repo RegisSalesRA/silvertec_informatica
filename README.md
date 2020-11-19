@@ -5,4 +5,4 @@ Sistema de montagem de computadores com a finalidade de adquerir conhecimentos s
 
 
 **Foto**
-<img src="./readme_images/git.png" alt="Github Foto" width="10" height="10">
+<img src="./readme_images/git.png" alt="Github Foto" width="100" height="100">
