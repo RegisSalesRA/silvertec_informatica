@@ -10,6 +10,7 @@ from django.db.models.fields.related_descriptors import create_forward_many_to_m
 class Processador(models.Model):
     nome = models.CharField(max_length=100)
     marca = models.ForeignKey(Marcas, on_delete=models.CASCADE)
+    descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -39,6 +40,7 @@ class PlacaMae(models.Model):
     memoriaSuportada = models.CharField(choices=memoria_suportada, max_length=100)
     videoIntegrado = models.BooleanField(default=False)
     cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
+    descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -55,6 +57,7 @@ class MemoriaRam(models.Model):
     nome = models.CharField(max_length=150)
     tamanho = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
     cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
+    descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -69,6 +72,9 @@ class MemoriaRam(models.Model):
 
 class PlacaDeVideo(models.Model):
     nome = models.CharField(max_length=150)
+    none = models.BooleanField(default=False)
+    descricao = models.CharField(max_length=150)
+
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

@@ -18,6 +18,7 @@ class Campos(models.Model):
 
 class Nome(models.Model):
     nome = models.CharField(max_length=100)
+    ativo = models.BooleanField(default=False)
 
     def __str__(self):
         return self.nome
@@ -25,6 +26,7 @@ class Nome(models.Model):
 
 class Sobrenome(models.Model):
     sobrenome = models.CharField(max_length=100)
+    ativo = models.BooleanField(default=False)
 
     def __str__(self):
         return self.sobrenome
@@ -33,6 +35,7 @@ class Sobrenome(models.Model):
 class Clientes(models.Model):
     nome = models.ForeignKey(Nome, on_delete=models.CASCADE)
     sobrenome = models.ForeignKey(Sobrenome, on_delete=models.CASCADE)
+
 
     class Meta:
         verbose_name = 'Cliente'

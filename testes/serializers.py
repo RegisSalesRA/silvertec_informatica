@@ -27,6 +27,8 @@ class ClientesSerializers(serializers.ModelSerializer):
         nome = data['nome']
         sobrenome = data['sobrenome']
 
-        if nome.nome == sobrenome.sobrenome:
+        if nome.ativo == sobrenome.ativo:
+            raise serializers.ValidationError("Nao pode existir dois usuarios ativos")
+        elif nome.nome == sobrenome.sobrenome:
             raise serializers.ValidationError("Nome precisa ser diferente do sobrenome")
         return data
