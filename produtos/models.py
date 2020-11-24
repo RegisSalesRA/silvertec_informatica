@@ -8,8 +8,15 @@ from django.db.models.fields.related_descriptors import create_forward_many_to_m
 # Create your models here.
 
 class Processador(models.Model):
+
+    marcas_opcoes = [
+        ('INTEL', 'INTEL'),
+        ('AMD', 'AMD'),
+        ('INTEL_AMD', 'INTEL E AMD')
+    ]
+
     nome = models.CharField(max_length=100)
-    marca = models.ForeignKey(Marcas, on_delete=models.CASCADE)
+    marca = models.CharField(max_length=100,choices=marcas_opcoes)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
@@ -20,10 +27,16 @@ class Processador(models.Model):
         verbose_name_plural = "Processadores"
 
     def __str__(self):
-        return f'{self.nome} {self.marca}'
+        return self.descricao
 
 
 class PlacaMae(models.Model):
+    marcas_opcoes = [
+        ('INTEL', 'INTEL'),
+        ('AMD', 'AMD'),
+        ('INTEL_AMD', 'INTEL E AMD')
+    ]
+
     memoria_suportada = [
         ('opcao1', 'Até 16 GB'),
         ('opcao2', 'Até 64 GB'),
@@ -35,7 +48,7 @@ class PlacaMae(models.Model):
     ]
 
     nome = models.CharField(max_length=150)
-    marca = models.ForeignKey(Marcas, on_delete=models.CASCADE)
+    marca = models.CharField(max_length=100,choices=marcas_opcoes)
     slots = models.CharField(choices=slots, max_length=20)
     memoriaSuportada = models.CharField(choices=memoria_suportada, max_length=100)
     videoIntegrado = models.BooleanField(default=False)
@@ -50,7 +63,7 @@ class PlacaMae(models.Model):
         verbose_name_plural = "Placas Mãe"
 
     def __str__(self):
-        return f'{self.nome} {self.marca} {self.slots} {self.memoriaSuportada} {self.videoIntegrado}'
+        return self.descricao
 
 
 class MemoriaRam(models.Model):
@@ -67,7 +80,7 @@ class MemoriaRam(models.Model):
         verbose_name_plural = "Memorias"
 
     def __str__(self):
-        return f'{self.nome} {self.tamanho}'
+        return self.descricao
 
 
 class PlacaDeVideo(models.Model):
@@ -83,4 +96,4 @@ class PlacaDeVideo(models.Model):
         verbose_name_plural = "Placas de video"
 
     def __str__(self):
-        return self.nome
+        return self.descricao

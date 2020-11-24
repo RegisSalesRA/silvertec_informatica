@@ -1,6 +1,4 @@
 from django.db import models
-
-
 # Create your models here.
 
 class Campos(models.Model):
@@ -17,16 +15,27 @@ class Campos(models.Model):
 
 
 class Nome(models.Model):
+    trabalhos = [
+        ('Medico', 'medico'),
+        ('Advogado', 'advogado'),
+    ]
+
     nome = models.CharField(max_length=100)
     ativo = models.BooleanField(default=False)
-
+    trabalho = models.CharField(max_length=100,choices=trabalhos)
     def __str__(self):
         return self.nome
 
 
 class Sobrenome(models.Model):
+    trabalhos = [
+        ('Medico', 'medico'),
+        ('Advogado', 'advogado'),
+    ]
+
     sobrenome = models.CharField(max_length=100)
     ativo = models.BooleanField(default=False)
+    trabalho = models.CharField(max_length=100,choices=trabalhos)
 
     def __str__(self):
         return self.sobrenome

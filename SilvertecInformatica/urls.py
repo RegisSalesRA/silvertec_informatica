@@ -22,6 +22,6 @@ from montagem.urls import Montagem
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pecas/', include(Produtos.urls)),
-    path('', include(Montagem.urls)),
+    path('montagem/', include(Montagem.urls)),
     path('campo/', include(Campo.urls) )
 ]

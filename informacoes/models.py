@@ -22,6 +22,11 @@ class Tamanhos(models.Model):
 
 
 class Marcas(models.Model):
+    # INTEL = 'INTEL'
+    # AMD = 'AMD'
+    # INTEL_AMD = 'INTEL E AMD'
+    #
+
     marcas_opcoes = [
         ('INTEL', 'INTEL'),
         ('AMD', 'AMD'),
