@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from produtos.urls import Produtos
 from montagem.urls import Montagem
+from testes.views import ClienteViewHtml
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pecas/', include(Produtos.urls)),
     path('montagem/', include(Montagem.urls)),
-    path('campo/', include(Campo.urls) )
+    path('campo/', include(Campo.urls)),
+    path('visualizar/', ClienteViewHtml, name='visualizar'),
 ]

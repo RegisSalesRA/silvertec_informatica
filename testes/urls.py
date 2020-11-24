@@ -6,7 +6,8 @@ Campo = SimpleRouter()
 Campo.register('campo', CampoView)
 Campo.register('cliente', ClienteView)
 
+
 urlpatterns = [
     path('campo', CampoView, name='campo'),
     path('cliente', ClienteView, name='cliente'),
-]
+    ]
