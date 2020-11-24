@@ -8,11 +8,14 @@ from django.db.models.fields.related_descriptors import create_forward_many_to_m
 # Create your models here.
 
 class Processador(models.Model):
+    INTEL = 'INTEL'
+    AMD = 'AMD'
+    INTEL_AMD = 'INTEL E AMD'
 
     marcas_opcoes = [
-        ('INTEL', 'INTEL'),
-        ('AMD', 'AMD'),
-        ('INTEL_AMD', 'INTEL E AMD')
+        (INTEL, 'INTEL'),
+        (AMD, 'AMD'),
+        (INTEL_AMD, 'INTEL E AMD')
     ]
 
     nome = models.CharField(max_length=100)
@@ -31,10 +34,14 @@ class Processador(models.Model):
 
 
 class PlacaMae(models.Model):
+    INTEL = 'INTEL'
+    AMD = 'AMD'
+    INTEL_AMD = 'INTEL E AMD'
+
     marcas_opcoes = [
-        ('INTEL', 'INTEL'),
-        ('AMD', 'AMD'),
-        ('INTEL_AMD', 'INTEL E AMD')
+        (INTEL, 'INTEL'),
+        (AMD, 'AMD'),
+        (INTEL_AMD, 'INTEL E AMD')
     ]
 
     memoria_suportada = [
