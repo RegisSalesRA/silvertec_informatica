@@ -19,7 +19,7 @@ class Processador(models.Model):
     ]
 
     nome = models.CharField(max_length=100)
-    marca = models.CharField(max_length=100,choices=marcas_opcoes)
+    marca = models.CharField(max_length=100, choices=marcas_opcoes)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
@@ -55,7 +55,7 @@ class PlacaMae(models.Model):
     ]
 
     nome = models.CharField(max_length=150)
-    marca = models.CharField(max_length=100,choices=marcas_opcoes)
+    marca = models.CharField(max_length=100, choices=marcas_opcoes)
     slots = models.CharField(choices=slots, max_length=20)
     memoriaSuportada = models.CharField(choices=memoria_suportada, max_length=100)
     videoIntegrado = models.BooleanField(default=False)
@@ -74,9 +74,15 @@ class PlacaMae(models.Model):
 
 
 class MemoriaRam(models.Model):
+    total = [
+        ('2', '2'),
+        ('4', '4'),
+    ]
+
     nome = models.CharField(max_length=150)
     tamanho = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
-    cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
+    cor = models.CharField(max_length=100, blank=True, null=True)
+    quantidade = models.CharField(max_length=100, choices=total, blank=True, null=True)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)

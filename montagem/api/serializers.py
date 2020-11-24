@@ -15,15 +15,18 @@ class MontagemSerializer(serializers.ModelSerializer):
     def validate(self, data):
         processador = data['processador']
         placamae = data['placamae']
-        # memoria = data['memoria']
-        # placadevideo = data['placadevideo']
+        memoria = data['memoria']
+        placadevideo = data['placadevideo']
 
         # if processador.marca != placamae.marca:
         #     raise serializers.ValidationError("A placa mae nao suporta esse processador")
 
-
-        if not ((processador.marca == placamae.marca) or (
-                (placamae.marca == placamae.INTEL_AMD))):
-            raise serializers.ValidationError("A placa mae nao suporta esse processador")
-
-        return data
+        #
+        # if not ((processador.marca == placamae.marca) or (
+        #         (placamae.marca == placamae.INTEL_AMD))):
+        #     raise serializers.ValidationError("A placa mae nao suporta esse processador")
+        #
+        # if len(memoria) > 1:
+        #
+        #
+        # return data
