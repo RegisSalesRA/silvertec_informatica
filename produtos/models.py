@@ -44,20 +44,18 @@ class PlacaMae(models.Model):
         (INTEL_AMD, 'INTEL E AMD')
     ]
 
-    memoria_suportada = [
-        ('opcao1', 'Até 16 GB'),
-        ('opcao2', 'Até 64 GB'),
-    ]
+    opcao1 = '16'
+    opcao2 = '64'
 
-    slots = [
-        ('2', '2'),
-        ('4', '4'),
+    totalMemoria = [
+        (opcao1, 'Até 16 GB'),
+        (opcao2, 'Até 64 GB'),
     ]
 
     nome = models.CharField(max_length=150)
     marca = models.CharField(max_length=100, choices=marcas_opcoes)
-    slots = models.CharField(choices=slots, max_length=20)
-    memoriaSuportada = models.CharField(choices=memoria_suportada, max_length=100)
+    slots = models.IntegerField(default=0)
+    memoriaSuportada = models.CharField(choices=totalMemoria, max_length=100)
     videoIntegrado = models.BooleanField(default=False)
     cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
     descricao = models.CharField(max_length=150)
@@ -74,15 +72,25 @@ class PlacaMae(models.Model):
 
 
 class MemoriaRam(models.Model):
-    total = [
-        ('2', '2'),
-        ('4', '4'),
+
+    opcao1 = '4'
+    opcao2 = '8'
+    opcao3 = '16'
+    opcao4 = '32'
+    opcao5 = '64'
+
+    totalMemoria = [
+        (opcao1, '4 GB'),
+        (opcao2, '8 GB'),
+        (opcao3, '16 GB'),
+        (opcao4, '32 GB'),
+        (opcao5, '64 GB'),
     ]
 
     nome = models.CharField(max_length=150)
-    tamanho = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
+    totalGigas = models.CharField(max_length=100,choices=totalMemoria)
     cor = models.CharField(max_length=100, blank=True, null=True)
-    quantidade = models.CharField(max_length=100, choices=total, blank=True, null=True)
+    quantidade = models.IntegerField(default=0)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)

@@ -10,7 +10,7 @@ from produtos.models import Processador, PlacaMae, MemoriaRam, PlacaDeVideo
 class MontagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Montagem
-        fields = ['nome','processador', 'placamae','memoria','placadevideo']
+        fields = ['nome', 'processador', 'placamae', 'memoria', 'placadevideo']
 
     def validate(self, data):
         processador = data['processador']
@@ -18,15 +18,17 @@ class MontagemSerializer(serializers.ModelSerializer):
         memoria = data['memoria']
         placadevideo = data['placadevideo']
 
-        # if processador.marca != placamae.marca:
-        #     raise serializers.ValidationError("A placa mae nao suporta esse processador")
+        # Validacao Processador && Placa Mae
+        if not ((processador.marca == placamae.marca) or (
+                (placamae.marca == placamae.INTEL_AMD))):
+            raise serializers.ValidationError("A placa mae nao suporta esse processador")
 
-        #
-        # if not ((processador.marca == placamae.marca) or (
-        #         (placamae.marca == placamae.INTEL_AMD))):
-        #     raise serializers.ValidationError("A placa mae nao suporta esse processador")
-        #
-        # if len(memoria) > 1:
-        #
-        #
-        # return data
+        # Validacao Placa Mae && Memoria
+        if (placamae.slots < memoria.quantidade):
+            raise serializers.ValidationError("Essa placa mae nao tem quantidade de slots suficientes")
+
+        if (placamae.memoriaSuportada < memoria.totalGigas):
+            raise serializers.ValidationError("A placa Mae nao Suporta essa quantidade de memoria")
+
+
+        return data
