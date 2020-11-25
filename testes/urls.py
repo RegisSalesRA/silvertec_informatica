@@ -1,4 +1,4 @@
-from .views import CampoView, ClienteView, ClienteViewHtml, UsuarioTesteView
+from .views import CampoView, ClienteView, ClienteViewHtml, UsuarioTesteView, ProfileList
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
@@ -7,6 +7,7 @@ Campo.register('campo', CampoView)
 Campo.register('cliente', ClienteView)
 Campo.register('clienteform', ClienteViewHtml)
 Campo.register('usuarioteste', UsuarioTesteView)
+
 
 urlpatterns = [
     path('campo', CampoView, name='campo'),

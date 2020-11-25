@@ -28,10 +28,13 @@ class ClienteViewHtml(viewsets.ModelViewSet):
         return Response({'serializer': serializer})
 
 class UsuarioTesteView(viewsets.ModelViewSet):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'index.html'
     queryset = UsuarioTeste.objects.all()
+    serializer_class = UsuarioTesteSerializer
 
+
+class ProfileList(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'profile_list.html'
 
     def get(self, request):
         queryset = UsuarioTeste.objects.all()
