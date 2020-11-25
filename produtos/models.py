@@ -44,12 +44,12 @@ class PlacaMae(models.Model):
         (INTEL_AMD, 'INTEL E AMD')
     ]
 
-    opcao1 = '16'
-    opcao2 = '64'
+    v1 = '16'
+    v2 = '64'
 
     totalMemoria = [
-        (opcao1, 'Até 16 GB'),
-        (opcao2, 'Até 64 GB'),
+        (v1, 'Até 16 GB'),
+        (v2, 'Até 64 GB'),
     ]
 
     nome = models.CharField(max_length=150)
@@ -72,18 +72,18 @@ class PlacaMae(models.Model):
 
 
 class MemoriaRam(models.Model):
-    opcao1 = '4'
-    opcao2 = '8'
-    opcao3 = '16'
-    opcao4 = '32'
-    opcao5 = '64'
+    v1 = '4'
+    v2 = '8'
+    v3 = '16'
+    v4= '32'
+    v5 = '64'
 
     totalMemoria = [
-        (opcao1, '4 GB'),
-        (opcao2, '8 GB'),
-        (opcao3, '16 GB'),
-        (opcao4, '32 GB'),
-        (opcao5, '64 GB'),
+        (v1, '4 GB'),
+        (v2, '8 GB'),
+        (v3, '16 GB'),
+        (v4, '32 GB'),
+        (v5, '64 GB'),
     ]
 
     nome = models.CharField(max_length=150)
@@ -105,7 +105,6 @@ class MemoriaRam(models.Model):
 
 class PlacaDeVideo(models.Model):
     nome = models.CharField(max_length=150)
-    none = models.BooleanField(default=False)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
