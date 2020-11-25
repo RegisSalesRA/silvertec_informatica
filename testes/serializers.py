@@ -1,4 +1,4 @@
-from .models import Campos, Clientes
+from .models import Campos, Clientes, UsuarioTeste
 from rest_framework import serializers
 
 
@@ -32,3 +32,9 @@ class ClientesSerializers(serializers.ModelSerializer):
         # elif nome.nome == sobrenome.sobrenome:
         #     raise serializers.ValidationError("Nome precisa ser diferente do sobrenome")
         return data
+
+
+class UsuarioTesteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UsuarioTeste
+        fields = ['nome', 'idade']

@@ -53,6 +53,10 @@ class Clientes(models.Model):
     def __str__(self):
         return str(self.nome)
 
+class UsuarioTeste(models.Model):
+    nome = models.CharField(max_length=100)
+    idade = models.IntegerField(default=0)
+
 #
 # class Keys_Serializer(serializers.Serializer):
 #

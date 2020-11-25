@@ -1,7 +1,7 @@
-from .serializers import CampoSerializer, ClientesSerializers
-from .models import Campos, Clientes
+from .serializers import CampoSerializer, ClientesSerializers, UsuarioTesteSerializer
+from .models import Campos, Clientes, UsuarioTeste
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, renderers
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -18,11 +18,21 @@ class ClienteView(viewsets.ModelViewSet):
     serializer_class = ClientesSerializers
 
 
-class ClienteViewHtml(APIView):
+class ClienteViewHtml(viewsets.ModelViewSet):
+    queryset = Clientes.objects.all()
+    serializer_class = ClientesSerializers
+    template_name = 'index.html'
+
+    def form(self, request, *args, **kwargs):
+        serializer = ClientesSerializers()
+        return Response({'serializer': serializer})
+
+class UsuarioTesteView(viewsets.ModelViewSet):
     renderer_classes = [TemplateHTMLRenderer]
     template_name = 'index.html'
-    #serializer_class = ClientesSerializers
+    queryset = UsuarioTeste.objects.all()
 
-    def get(self, request, *args,**kwargs):
-        queryset = Clientes.objects.all()
-        return Response(request,{'clientes': queryset})
+
+    def get(self, request):
+        queryset = UsuarioTeste.objects.all()
+        return Response({'profiles': queryset})
