@@ -29,6 +29,9 @@ class MontagemSerializer(serializers.ModelSerializer):
 
         if (placamae.memoriaSuportada < memoria.totalGigas):
             raise serializers.ValidationError("A placa Mae nao Suporta essa quantidade de memoria")
-
+        # Validacao da Placa de Video
+        if not placamae.videoIntegrado:
+            if placadevideo is None:
+                raise serializers.ValidationError("placa mae nao possui video integrado por favor escolha uma placa de video")
 
         return data

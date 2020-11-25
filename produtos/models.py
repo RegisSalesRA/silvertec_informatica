@@ -72,7 +72,6 @@ class PlacaMae(models.Model):
 
 
 class MemoriaRam(models.Model):
-
     opcao1 = '4'
     opcao2 = '8'
     opcao3 = '16'
@@ -88,7 +87,7 @@ class MemoriaRam(models.Model):
     ]
 
     nome = models.CharField(max_length=150)
-    totalGigas = models.CharField(max_length=100,choices=totalMemoria)
+    totalGigas = models.CharField(max_length=100, choices=totalMemoria)
     cor = models.CharField(max_length=100, blank=True, null=True)
     quantidade = models.IntegerField(default=0)
     descricao = models.CharField(max_length=150)
