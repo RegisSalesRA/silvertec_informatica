@@ -1,9 +1,8 @@
 # Silvertec Informática
 
 **Primeiros passos do projeto**
-- pip install django
-- pip install djangorestframework
 
+- pip install -r requirements.txt
 - python manage.py migrate
 - python manage.py createsuperuser
 
