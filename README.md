@@ -9,8 +9,10 @@
 
 - python manage.py runserver
 
+
 # Aqui você pode visualizar e usar o post
 
 - Insira os dados na app produtos em admin e utilize a descricao para saber os atributos da peça de computador 
-**Foto**
-<img src="./imagens/git.png" alt="Github Foto">
+- http://127.0.0.1:8000/montagem/ para acessar a api
+ 
+<img src="./imagens/IndexForm.png" alt="Rest Form">
