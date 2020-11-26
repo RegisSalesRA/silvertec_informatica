@@ -9,7 +9,8 @@
 
 - python manage.py runserver
 
-Aqui você pode visualizar e usar o post
+# Aqui você pode visualizar e usar o post
 
+- Insira os dados na app produtos em admin e utilize a descricao para saber os atributos da peça de computador 
 **Foto**
 <img src="./imagens/git.png" alt="Github Foto">
