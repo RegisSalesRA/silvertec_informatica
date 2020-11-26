@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Tamanhos, Marcas
+from .models import Tamanhos
 
-admin.site.register(Marcas)
+
 admin.site.register(Tamanhos)
