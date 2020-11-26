@@ -1,11 +1,13 @@
-# Hey
-<h3>*Silvertec-Informatica*
-Sistema de montagem de computadores com a finalidade de adquerir conhecimentos sobre regras de negocios &amp; validacoes com rest framework
-<h3>
-<p>Primeiros Passos</p>
-1 - python manage.py migrate
-1 - python manage.py migrate
+# Silvertec Informática
 
+*Primeiros passos do projeto
+- pip install django
+- pip install djangorestframework
+
+- python manage.py migrate
+- python manage.py createsuperuser
+
+- python manage.py runserver
 
 
 **Foto**
