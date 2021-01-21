@@ -14,4 +14,4 @@
 - Insira os dados na app produtos em admin e utilize a descricao para saber os atributos da peça de computador 
 - http://127.0.0.1:8000/montagem/ para acessar a api
  
-<img src="./imagens/IndexForm.png" alt="Rest Form">
+<img src="./static/index.png" alt="Rest Form">

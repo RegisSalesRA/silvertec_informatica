@@ -45,8 +45,8 @@ class PlacaMae(models.Model):
     nome = models.CharField(max_length=150)
     marca = models.CharField(max_length=100, choices=marcas_opcoes)
     slots = models.IntegerField(default=0)
-    memoriaSuportada = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
-    videoIntegrado = models.BooleanField(default=False)
+    memoria_suportada = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
+    video_integrado = models.BooleanField(default=False)
     cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
     descricao = models.CharField(max_length=150)
 
@@ -63,7 +63,7 @@ class PlacaMae(models.Model):
 
 class MemoriaRam(models.Model):
     nome = models.CharField(max_length=150)
-    totalGigas = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
+    total_gigas = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
     cor = models.CharField(max_length=100, blank=True, null=True)
     quantidade = models.IntegerField(default=0)
     descricao = models.CharField(max_length=150)

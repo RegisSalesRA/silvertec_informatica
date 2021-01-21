@@ -10,13 +10,13 @@ from produtos.models import Processador, PlacaMae, MemoriaRam, PlacaDeVideo
 class MontagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Montagem
-        fields = ['nome', 'processador', 'placamae', 'memoria', 'placadevideo']
+        fields = ['nome', 'processador', 'placa_mae', 'memoria', 'placa_de_video']
 
     def validate(self, data):
         processador = data['processador']
-        placamae = data['placamae']
+        placamae = data['placa_mae']
         memoria = data['memoria']
-        placadevideo = data['placadevideo']
+        placadevideo = data['placa_de_video']
 
         #Validacao nao pode ser vazio
         if memoria is None:

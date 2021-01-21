@@ -9,7 +9,7 @@ class Tamanhos(models.Model):
     v4 = '32'
     v5 = '64'
 
-    totalMemoria = [
+    total_memoria = [
         (v1, '4 GB'),
         (v2, '8 GB'),
         (v3, '16 GB'),
@@ -17,7 +17,7 @@ class Tamanhos(models.Model):
         (v5, '64 GB'),
     ]
 
-    tamanho = models.CharField(choices=totalMemoria, max_length=100)
+    tamanho = models.CharField(choices=total_memoria, max_length=100)
 
     class Meta:
         verbose_name = 'Tamanho'
