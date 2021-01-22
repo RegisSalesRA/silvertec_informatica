@@ -23,7 +23,7 @@ def validar_memoria_quantidade_gigas(data):
     memoria = data['memoria']
     if (placa_mae.memoria_suportada.tamanho < memoria.total_gigas.tamanho):
         raise serializers.ValidationError("Placa mae nao possui quantidade de memoria suficiente")
-
+        
 
 
 def validar_placa_de_video(data):
