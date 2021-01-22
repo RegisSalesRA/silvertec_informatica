@@ -14,32 +14,32 @@ class MontagemSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         processador = data['processador']
-        placamae = data['placa_mae']
+        placa_mae = data['placa_mae']
         memoria = data['memoria']
-        placadevideo = data['placa_de_video']
+        placa_de_video = data['placa_de_video']
 
         #Validacao nao pode ser vazio
         if memoria is None:
             raise serializers.ValidationError("Voce precisa selecionar pelo menos uma memoria")
         if processador is None:
             raise serializers.ValidationError("Voce precisa selecionar pelo menos um processador")
-        if placamae is None:
-            raise serializers.ValidationError("Voce precisa selecionar pelo menos uma placamae")
+        if placa_mae is None:
+            raise serializers.ValidationError("Voce precisa selecionar pelo menos uma placa mae")
 
         # Validacao Processador && Placa Mae
-        if not ((processador.marca == placamae.marca) or (
-            (placamae.marca == placamae.INTEL_AMD))):
+        if not ((processador.marca == placa_mae.marca) or (
+            (placa_mae.marca == placa_mae.INTEL_AMD))):
             raise serializers.ValidationError("A placa mae nao suporta esse processador")
 
         # Validacao Placa Mae && Memoria
-        if (placamae.slots < memoria.quantidade):
+        if (placa_mae.slots < memoria.quantidade):
             raise serializers.ValidationError("Essa placa mae nao tem quantidade de slots suficientes")
 
-        if (placamae.memoriaSuportada.tamanho < memoria.totalGigas.tamanho):
+        if (placa_mae.memoria_suportada.tamanho < memoria.total_gigas.tamanho):
             raise serializers.ValidationError("A placa Mae nao Suporta essa quantidade de memoria")
         # Validacao da Placa de Video
-        if not placamae.videoIntegrado:
-            if placadevideo is None:
+        if not placa_mae.video_integrado:
+            if placa_de_video is None:
                 raise serializers.ValidationError(
                     "placa mae nao possui video integrado por favor escolha uma placa de video")
 
