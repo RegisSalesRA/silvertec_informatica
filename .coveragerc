@@ -9,4 +9,6 @@ omit =
     */admin.py
     */migrations/*
     */tests/*
-    
+    */venv/*
+    */asgi.py
+    */main.py
