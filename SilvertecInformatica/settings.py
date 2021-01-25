@@ -25,8 +25,9 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.getenv("DEBUG"))
 
-ALLOWED_HOSTS = str(os.getenv("ALLOWED_HOSTS"))
-#ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
+# ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 # Application definition
 
@@ -81,6 +82,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'TEST': {
+        'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
 }
 
