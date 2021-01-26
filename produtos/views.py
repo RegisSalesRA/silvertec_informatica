@@ -9,7 +9,6 @@ class ProcessadorView(viewsets.ModelViewSet):
     serializer_class = ProcessadorSerializer
 
     
-
 class PlacaMaeView(viewsets.ModelViewSet):
     queryset = PlacaMae.objects.all()
     serializer_class = PlacaMaeSerializer

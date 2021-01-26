@@ -10,7 +10,7 @@ from produtos.models import Processador, PlacaMae, MemoriaRam, PlacaDeVideo
 class MontagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Montagem
-        fields = ['nome', 'processador', 'placa_mae', 'memoria', 'placa_de_video']
+        fields = ['id','nome', 'processador', 'placa_mae', 'memoria', 'placa_de_video']
 
     def validate(self, data):
         validar_processador_compatibilidade(data)

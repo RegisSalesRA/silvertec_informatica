@@ -12,7 +12,6 @@ Produtos.register('placadevideo', PlacaDeVideoView)
 
 
 urlpatterns = [
-    
     path('processador/', ProcessadorView, name='processador'),
     path('placamae/', PlacaMaeView, name='placamae'),
     path('memoria/', MemoriaView, name='memoria'),

@@ -11,13 +11,13 @@ class ProcessadorSerializer(serializers.ModelSerializer):
 class PlacaMaeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlacaMae
-        fields = ['nome','marca', 'slots', 'memoriaSuportada', 'videoIntegrado', 'descricao']
+        fields = ['nome','marca', 'slots', 'memoria_suportada', 'video_integrado', 'descricao']
 
 
 class MemoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = MemoriaRam
-        fields = ['nome', 'totalGigas','quantidade','descricao']
+        fields = ['nome', 'total_gigas','quantidade','descricao']
 
 
 class PlacaDeVideoSerializer(serializers.ModelSerializer):
