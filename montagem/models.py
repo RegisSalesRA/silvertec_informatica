@@ -7,15 +7,15 @@ from produtos.models import Processador, PlacaDeVideo, PlacaMae, MemoriaRam
 
 
 class Montagem(models.Model):
-    nome = models.ForeignKey(User, on_delete=models.CASCADE)
-    processador = models.ForeignKey(Processador, on_delete=models.CASCADE,blank=True,null=True)
-    placa_mae = models.ForeignKey(PlacaMae, on_delete=models.CASCADE,blank=True,null=True)
-    memoria = models.ForeignKey(MemoriaRam, on_delete=models.CASCADE, blank=True,null=True)
-    placa_de_video = models.ForeignKey(PlacaDeVideo, on_delete=models.CASCADE, blank=True, null=True)
+    usuario_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    processador_id = models.ForeignKey(Processador, on_delete=models.CASCADE,blank=True,null=True)
+    placa_mae_id = models.ForeignKey(PlacaMae, on_delete=models.CASCADE,blank=True,null=True)
+    memoria_id = models.ForeignKey(MemoriaRam, on_delete=models.CASCADE, blank=True,null=True)
+    placa_de_video_id = models.ForeignKey(PlacaDeVideo, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Montagem'
         verbose_name_plural = 'Montagens'
 
     def __str__(self):
-        return f'Computador do cliente {str(self.nome)}'
+        return f'Nome do Cliente "{self.usuario_id}" -> PEDIDO: {self.processador_id} {self.placa_mae_id} {self.memoria_id} {self.placa_de_video_id}'

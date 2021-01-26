@@ -1,4 +1,4 @@
-from montagem.views import MontagemView
+from montagem.views import MontagemView, UsuarioView
 from django.urls import path
 from rest_framework.routers import SimpleRouter
 
@@ -6,6 +6,8 @@ from rest_framework.routers import SimpleRouter
 Montagem = SimpleRouter()
 Montagem.register('', MontagemView)
 
+Usuario = SimpleRouter()
+Usuario.register('users', UsuarioView)
 
 urlpatterns = [
     path('', MontagemView, name='montagem'),

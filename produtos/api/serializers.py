@@ -5,22 +5,22 @@ from rest_framework import serializers
 class ProcessadorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Processador
-        fields = ['nome', 'marca','descricao']
+        fields = ['id','nome', 'marca','descricao']
 
 
 class PlacaMaeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlacaMae
-        fields = ['nome','marca', 'slots', 'memoria_suportada', 'video_integrado', 'descricao']
+        fields = ['id','nome','marca', 'slots', 'memoria_suportada', 'video_integrado', 'descricao']
 
 
 class MemoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = MemoriaRam
-        fields = ['nome', 'total_gigas','quantidade','descricao']
+        fields = ['id','nome', 'total_gigas','quantidade','descricao']
 
 
 class PlacaDeVideoSerializer(serializers.ModelSerializer):
     class Meta:
         model = PlacaDeVideo
-        fields = ['nome','descricao']
+        fields = ['id','nome','descricao']
