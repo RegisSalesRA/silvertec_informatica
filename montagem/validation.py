@@ -2,32 +2,34 @@ from rest_framework import serializers
 
 
 def validar_processador_compatibilidade(data):
-    placa_mae = data['placa_mae']
-    processador = data['processador']
-    
+    placa_mae = data['placa_mae_id']
+    #placa_mae = data.get('placa_mae_id')
+    processador = data['processador_id']
+    # if not placa_mae and not processador:
+    #     raise serializers.ValidationError("Voce precisa preencher esses campos")
     if not ((processador.marca == placa_mae.marca) or (
             (placa_mae.marca == placa_mae.INTEL_AMD))):
             raise serializers.ValidationError("Processador imcompativel com a placa mae")
 
 
 def validar_memoria_slot(data):
-    placa_mae = data['placa_mae']
-    memoria = data['memoria']
+    placa_mae = data['placa_mae_id']
+    memoria = data['memoria_id']
     
     if (placa_mae.slots < memoria.quantidade):
         raise serializers.ValidationError("Placa mae nao possui slots suficientes")
     
 
 def validar_memoria_quantidade_gigas(data):
-    placa_mae = data['placa_mae']
-    memoria = data['memoria']
+    placa_mae = data['placa_mae_id']
+    memoria = data['memoria_id']
     if (int(placa_mae.memoria_suportada.tamanho) < int(memoria.total_gigas.tamanho)):
         raise serializers.ValidationError("Placa mae nao possui quantidade de memoria suficiente")
         
 
 def validar_placa_de_video(data):
-    placa_mae = data['placa_mae']
-    placa_de_video = data['placa_de_video']
+    placa_mae = data['placa_mae_id']
+    placa_de_video = data['placa_de_video_id']
 
     if not placa_mae.video_integrado:
         if placa_de_video is None:

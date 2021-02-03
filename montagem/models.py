@@ -12,7 +12,7 @@ class Montagem(models.Model):
     placa_mae_id = models.ForeignKey(PlacaMae, on_delete=models.CASCADE,blank=True,null=True)
     memoria_id = models.ForeignKey(MemoriaRam, on_delete=models.CASCADE, blank=True,null=True)
     placa_de_video_id = models.ForeignKey(PlacaDeVideo, on_delete=models.CASCADE, blank=True, null=True)
-
+    #ManyToMany
     class Meta:
         verbose_name = 'Montagem'
         verbose_name_plural = 'Montagens'

@@ -24,13 +24,3 @@ class MontagemSerializer(serializers.ModelSerializer):
         validar_placa_de_video(data)
         
         return data
-
-
-
-
-
-
-# Validacao Processador && Placa Mae
-#         if not ((processador.marca == placamae.marca) or
-#                 (placamae.marca == placamae.marca.INTEL_AMD)):
-#             raise serializers.ValidationError("A placa mae nao suporta esse processador")
