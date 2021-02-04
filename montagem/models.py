@@ -10,7 +10,7 @@ class Montagem(models.Model):
     usuario_id = models.ForeignKey(User, on_delete=models.CASCADE)
     processador_id = models.ForeignKey(Processador, on_delete=models.CASCADE,blank=True,null=True)
     placa_mae_id = models.ForeignKey(PlacaMae, on_delete=models.CASCADE,blank=True,null=True)
-    memoria_id = models.ForeignKey(MemoriaRam, on_delete=models.CASCADE, blank=True,null=True)
+    memoria_id = models.ManyToManyField(MemoriaRam)
     placa_de_video_id = models.ForeignKey(PlacaDeVideo, on_delete=models.CASCADE, blank=True, null=True)
     #ManyToMany
     class Meta:

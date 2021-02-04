@@ -7,7 +7,7 @@ Montagem = SimpleRouter()
 Montagem.register('', MontagemView)
 
 Usuario = SimpleRouter()
-Usuario.register('users', UsuarioView)
+Usuario.register('', UsuarioView)
 
 urlpatterns = [
     path('', MontagemView, name='montagem'),
