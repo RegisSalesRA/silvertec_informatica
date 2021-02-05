@@ -20,7 +20,7 @@ class MontagemSerializer(serializers.ModelSerializer):
     def validate(self, data):
         validar_processador_compatibilidade(data)
         validar_memoria_slot(data)
-        #validar_memoria_quantidade_gigas(data)
+        validar_memoria_quantidade_gigas(data)
         validar_placa_de_video(data)
         
         return data
