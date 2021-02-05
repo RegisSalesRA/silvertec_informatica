@@ -12,13 +12,13 @@ def validar_processador_compatibilidade(data):
             raise serializers.ValidationError("Processador imcompativel com a placa mae")
 
 
-def validar_memoria_slot(data):
-    placa_mae = data['placa_mae_id']
-    memoria = data['memoria_id']
+# def validar_memoria_slot(data):
+#     placa_mae = data['placa_mae_id']
+#     memoria = data['memoria_id']
     
-    if (placa_mae.slots < memoria.quantidade):
-        raise serializers.ValidationError("Placa mae nao possui slots suficientes")
-    
+#     if (placa_mae.slots < memoria):
+#         raise serializers.ValidationError("Placa mae nao possui slots suficientes")
+
 
 def validar_memoria_quantidade_gigas(data):
     placa_mae = data['placa_mae_id']
