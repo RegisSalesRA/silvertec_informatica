@@ -65,7 +65,6 @@ class MemoriaRam(models.Model):
     nome = models.CharField(max_length=150)
     total_gigas = models.ForeignKey(Tamanhos, on_delete=models.CASCADE)
     cor = models.CharField(max_length=100, blank=True, null=True)
-    quantidade = models.IntegerField(default=0)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
