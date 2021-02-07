@@ -28,11 +28,11 @@ def validar_memoria_quantidade_gigas(data):
 
     qtd_memoria_ram_gigas = []
     for memoria in memorias_rams:
-        qtd_memoria_ram = int(memoria.total_gigas.tamanho)
-        qtd_memoria_ram_gigas.append(qtd_memoria_ram)
+        qtd_memoria_ram_gigas.append(memoria.memoria)
     total_gigas = sum(qtd_memoria_ram_gigas)
 
-    if (int(placa_mae.memoria_suportada.tamanho) < total_gigas):
+
+    if (placa_mae.memoria_suportada < total_gigas):
         raise serializers.ValidationError("Placa mae nao possui quantidade de memoria suficiente")
         
 
