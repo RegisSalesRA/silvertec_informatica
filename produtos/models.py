@@ -1,6 +1,5 @@
 from django.db import models
-from informacoes.models import Tamanhos
-from acessorios.models import Cores
+from acessorios.models import Cores, Coolers
 
 
 # Create your models here.
@@ -78,7 +77,7 @@ class MemoriaRam(models.Model):
     
     nome = models.CharField(max_length=150)
     memoria = models.PositiveIntegerField(choices=memoria_opcoes)
-    cor = models.CharField(max_length=100, blank=True, null=True)
+    cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
     descricao = models.CharField(max_length=150)
 
     created = models.DateTimeField(auto_now_add=True)
@@ -95,6 +94,7 @@ class MemoriaRam(models.Model):
 class PlacaDeVideo(models.Model):
     nome = models.CharField(max_length=150)
     descricao = models.CharField(max_length=150)
+    cor = models.ForeignKey(Cores, on_delete=models.CASCADE, blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

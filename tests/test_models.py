@@ -1,8 +1,7 @@
 import uuid
 from django.test import TestCase
 from model_mommy import mommy
-from acessorios.models import Cores    
-from informacoes.models import Tamanhos
+from acessorios.models import Cores, Coolers    
 from montagem.models import Montagem
 from produtos.models import MemoriaRam,Processador,PlacaDeVideo, PlacaMae
 

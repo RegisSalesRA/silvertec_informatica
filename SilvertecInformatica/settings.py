@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'produtos',
     'montagem',
     'acessorios',
-    'informacoes',
     'rest_framework',
 ]
 
