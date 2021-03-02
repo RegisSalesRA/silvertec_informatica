@@ -1,10 +1,7 @@
-from montagem.views import MontagemView, UsuarioView
-from django.urls import path
-from rest_framework.routers import SimpleRouter
+from django.urls import include, path, re_path
+from montagem.api.urls.v1_urls import Usuario, Montagem
 
-
-Montagem = SimpleRouter()
-Montagem.register('', MontagemView)
-
-Usuario = SimpleRouter()
-Usuario.register('users', UsuarioView)
+urlpatterns = [
+    path('v1/', include(Usuario.urls)),
+    path('v1/', include(Montagem.urls)),
+]

@@ -1,7 +1,8 @@
+from rest_framework import viewsets
+from rest_framework import status
+from rest_framework.response import Response
 from produtos.api.serializers import MemoriaSerializer, PlacaDeVideoSerializer, PlacaMaeSerializer, ProcessadorSerializer
 from produtos.models import Processador, PlacaMae, PlacaDeVideo,MemoriaRam
-from django.shortcuts import render
-from rest_framework import viewsets
 
 # Create your views here.
 class ProcessadorView(viewsets.ModelViewSet):

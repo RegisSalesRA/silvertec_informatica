@@ -1,6 +1,6 @@
 from requests import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST
-from montagem.validation import *
+from montagem.api.validation import *
 from montagem.models import Montagem
 from rest_framework import serializers, status
 from django.contrib.auth.models import User
