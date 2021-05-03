@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'montagem',
     'acessorios',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
