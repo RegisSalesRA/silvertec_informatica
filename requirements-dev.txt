@@ -18,7 +18,7 @@ Jinja2==2.11.3
 MarkupSafe==1.1.1
 model-mommy==2.0.0
 packaging==20.9
-pipenv==2020.8.13
+pipenv==2022.1.8
 pycosat==0.6.3
 pyparsing==2.4.7
 python-decouple==3.4
