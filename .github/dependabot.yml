@@ -4,8 +4,12 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    commit-message:
+      prefix: "pip enviroments"
+      include: "scope  
+    open-pull-requests-limit: 5  
   - package-ecosystem: 'github-actions'
     directory: '/' # Location of package manifests
     schedule:
       interval: 'daily'
-    open-pull-requests-limit: 15
+    open-pull-requests-limit: 5
