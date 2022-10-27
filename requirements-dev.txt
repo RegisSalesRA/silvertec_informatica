@@ -26,7 +26,7 @@ python-dotenv==0.15.0
 pytz==2020.4
 requests==2.24.0
 ruamel.yaml==0.16.12
-ruamel.yaml.clib==0.2.2
+ruamel.yaml.clib==0.2.7
 six==1.15.0
 sqlparse==0.4.3
 uritemplate==3.0.1
